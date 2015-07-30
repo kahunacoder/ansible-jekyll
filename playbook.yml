@@ -1,6 +1,8 @@
 ---
-- hosts: jekyll
+- hosts: all
+  sudo: true
   roles:
+    - update
     - common
     - nginx
     - git

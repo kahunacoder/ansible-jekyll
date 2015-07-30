@@ -1,5 +1,19 @@
 ---
-- name: Install jekyll gem
-  command: /usr/local/rvm/bin/rvm all do gem install jekyll --version {{jekyll_version}}
+# - name: Install Ruby Gems
+#   command: gem install {{ item }}
+#   with_items: 
+#   - jekyll
+#   register: gem_install_result
+# #  changed_when: "'is already installed' not in npm_install_result.stdout"
+# #  failed_when: "'No releases available for package' in npm_install_result.stdout"
+#   tags: [packages,ruby,gems]
+
+
+# - name: Install jekyll gem
+#   command: /usr/local/rvm/bin/rvm all do gem install jekyll --version {{jekyll_version}}
+
 - name: Install nodejs (execjs dependency)
   action: apt pkg=nodejs state=installed
+
+# - name: bundle install
+#   command:  /home/{{VM_HOME}}/site bundle install

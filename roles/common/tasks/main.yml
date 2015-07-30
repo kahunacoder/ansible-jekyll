@@ -2,5 +2,12 @@
 #Install ruby, rvm
 - name: Install curl
   action: apt pkg=curl state=installed
+
+- name: Install gpg
+  action: apt pkg=gnupg2 state=installed
+
+- name: Install gpg key
+  command: gpg2 --keyserver hkp://keys.gnupg.net --recv-keys BF04FF17 
+
 - name: Install ruby and rvm
   script: rvm_install.sh "{{ruby_version}}" > /var/log/rvm_install.log

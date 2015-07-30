@@ -1,0 +1,76 @@
+---
+# Most of these settings can be left as is except for SERVER_ADMIN, SERVER_ALIASES and the 
+# GITLAB key settings.
+
+# Used for testing forms
+SERVER_ADMIN: roger@dsi.gs
+
+# The AJAX one is required to test sites on a device,
+# The WEB one is required to view a web site on a device too.
+SERVER_ALIASES:
+  WEB: bp2.dev.dsi.gs
+  AJAX: ajax.bp2.dev.dsi.gs
+
+# This should work for most installtions but needs to be
+# lamp32 for testing on a virtual machine like our Win7 VM
+BOX: lamp64A
+BOX_URL: http://filez.dsi.gs:8202/vagrant/lamp64A.box
+MEMORY: 1024
+CPUEXECUTIONCAP: 75
+# This should be "on" unless your CPU does not support VT-x or you run virtualbox
+# inside virtualbox the set it to "off"
+VTX: "on"
+
+# Most of these should be set to true
+PLUGINS:
+  HOSTSUPDATER: true
+  EXEC: true
+  AUTO_NETWORK: true
+  BOX_UPDATER: true
+  VBGUEST: false
+  TRIGGERS: false
+
+# This is requred to update the DSI web and system utilities
+GITLAB_KEY_PATH: "~/.ssh/"
+GITLAB_PUB_KEY: "gitlab_rsa.pub"
+GITLAB_PRIVATE_KEY: "gitlab_rsa"
+
+# The variables file used for Postfix playbooks.
+# If not overriden in inventory or as a parameter, this is the value that will be used
+
+# # The FQDN for the Postfix email server
+postfix_domain: ''
+
+# The receiving email address where root email is forwarded
+postfix_notify_email: raj@dsi.gs
+
+postfix_relayhost: '[smtp.gmail.com]:587'
+
+# The flag for whether to enable SMTP sending
+postfix_use_smtp: true
+
+# The username for SMTP authentication
+postfix_relayhost_user: dev.dsi.gs@gmail.com
+
+# The password for SMTP authentication
+postfix_relayhost_pass: MahaloGary
+
+# Default settings for xdebug
+PHP_XDEBUG_REMOTE_ENABLE: "true"
+PHP_XDEBUG_REMOTE_CONNECT_BACK: "true"
+PHP_XDEBUG_REMOTE_HOST: localhost
+PHP_XDEBUG_REMOTE_PORT: "9000"
+PHP_XDEBUG_REMOTE_LOG: /tmp/xdebug.log
+PHP_XDEBUG_IDEKEY: sublime.xdebug
+PHP_MAX_NESTING_LEVEL: 200
+PHP_XDEBUG_FILE_LINK_FORMAT: "subl://open?url=file://%f&line=%1"
+PHP_XDEBUG_PROFILER_ENABLE: Off
+
+BROWSER_SYNC_PORT: 3000
+BROWSER_SYNC_UI_PORT: 3001
+
+
+
+
+
+

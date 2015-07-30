@@ -1,0 +1,40 @@
+---
+
+# All ansible-jekyll variables
+# Override any in your local ansible group_vars/jekyll.yml
+http_user: www-data
+http_root: /home/kc/kahunacoder.com/site/_site
+jekyll_version: 2.3.0
+ruby_version: 2.1.2
+gh_hostname: kc.dev
+
+server_hostname: github.com
+git_user_key: "{{ lookup('file', '~/.ssh/kc_dsa.pub') }}"
+
+# These two will form the path for the git remote:
+# e.g. git@example.com:repos/example-repo.git
+# git@github.com:kahunacoder/kahunacoder.github.io.git
+git_repo: kahunacoder.github.io.git
+git_repo_dir: kahunacoder
+
+
+# These setting configure the project to run on the VM
+
+# PROJECT_OWNER becomes the local url as http://PROJECT_OWNER.dev
+PROJECT_OWNER: kc
+
+# PROJECT_DOMAIN is the live domain of the project
+PROJECT_DOMAIN: kahunacoder.com
+
+# This is the apache document root and is usually set to public
+# which points to web/public
+#DOCUMENT_ROOT: _site
+
+# If this project uses a buld system then it needs to be set to '/web'
+# Most projects will have this set to ''
+BUILD: ''
+
+# VM_HOME can be called anything except PROJECT_NAME/web 
+# the default here is PROJECT_NAME/PROJECT_URL
+VM_HOME: kc/kahunacoder.com
+
