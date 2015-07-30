@@ -3,6 +3,9 @@
 - name: Install curl
   action: apt pkg=curl state=installed
 
+- name: Install git
+  action: apt pkg=git-core state=installed
+
 - name: Install gpg
   action: apt pkg=gnupg2 state=installed
 
@@ -11,3 +14,9 @@
 
 - name: Install ruby and rvm
   script: rvm_install.sh "{{ruby_version}}" > /var/log/rvm_install.log
+
+- name: Install jekyll gem
+  command: /usr/local/rvm/bin/rvm all do gem install jekyll --version {{jekyll_version}}
+
+- name: Install nodejs (execjs dependency)
+  action: apt pkg=nodejs state=installed
